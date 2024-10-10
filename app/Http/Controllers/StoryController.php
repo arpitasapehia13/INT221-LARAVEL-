@@ -27,4 +27,37 @@ class StoryController extends Controller
         $stories = DB::table('stories')->get();  // Corrected DB facade usage
         return view('allstories', compact('stories'));
     }
+
+    public function singleStory($id)
+    {
+        // Retrieve the story by ID
+        $story = DB::table('stories')->where('id', $id)->first();
+
+        // Pass the story to the view
+        return view('single-story', compact('story'));
+    }
+
+    public function editStory($id)
+    {
+        $story = DB::table('stories')->where('id', $id)->first();
+    
+        // Pass the view name as a string
+        return view('edit-story', compact('story'));
+    }
+    
+    public function updateStory($id, Request $request)
+    {
+        // Update the story in the database
+        DB::table('stories')
+            ->where('id', $id)
+            ->update([
+                'title' => $request->title,
+                'body' => $request->body
+            ]);
+    
+        // Redirect to the route that lists all stories
+        return redirect()->route('getAllStories')->with('success', 'Story updated successfully!');
+    }
+    
 }
+

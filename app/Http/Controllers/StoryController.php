@@ -58,6 +58,14 @@ class StoryController extends Controller
         // Redirect to the route that lists all stories
         return redirect()->route('getAllStories')->with('success', 'Story updated successfully!');
     }
+    public function deleteStory($id)
+    {
+        // Delete the story with the given id
+        DB::table('stories')->where('id', $id)->delete();
+    
+        // Redirect to the list of all stories
+        return redirect()->route('getAllStories')->with('success', 'Story deleted successfully!');
+    }
     
 }
 

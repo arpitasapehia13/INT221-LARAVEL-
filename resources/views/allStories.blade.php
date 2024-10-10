@@ -40,7 +40,7 @@ All Stories
         <td>
         <a href="single-story/{{$story->id}}" class = "btn btn-info">View</a>
         <a href="edit-story/{{$story->id}}" class = "btn btn-primary">Edit</a>
-        <a href="" class = "btn btn-danger">Delete</a>
+        <a href="delete-story/{{$story->id}}" class = "btn btn-danger">Delete</a>
     </td>
         
 

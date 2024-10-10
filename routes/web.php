@@ -361,6 +361,7 @@ Route::get('allstories', [StoryController::class, 'getAllStories'])->name('getAl
 Route::get('/single-story/{id}', [StoryController::class, 'singleStory'])->name('single-story');
 Route::get('/edit-story/{id}', [StoryController::class, 'editStory'])->name('edit-story');
 Route::post('/update-story/{id}', [StoryController::class, 'updateStory'])->name('update-story');
+Route::get('delete-story/{id}',[StoryController::class,'deleteStory'])->name('delete-story');
 
 
 

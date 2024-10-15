@@ -9,6 +9,7 @@ use App\Http\Middleware\SomeMiddleware;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\validationController;
 
 
 // Route::get('/', function () {
@@ -364,4 +365,12 @@ Route::post('/update-story/{id}', [StoryController::class, 'updateStory'])->name
 Route::get('delete-story/{id}',[StoryController::class,'deleteStory'])->name('delete-story');
 
 
+//************************************************************************************************************************/
 
+//FORM VALIDATION
+
+Route::get('validate', function() {
+    return view('validation');  
+});
+
+Route::post('validate', [validationController::class, 'index']);

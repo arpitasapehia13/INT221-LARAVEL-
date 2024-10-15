@@ -10,6 +10,7 @@ use App\Http\Controllers\CookieController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\validationController;
+use App\Http\Controllers\UploadController;
 
 
 // Route::get('/', function () {
@@ -374,3 +375,8 @@ Route::get('validate', function() {
 });
 
 Route::post('validate', [validationController::class, 'index']);
+
+
+//FILE UPLOAD
+Route::get('/upload', [UploadController::class, 'uploadForm']);
+Route::post('/upload', [UploadController::class, 'uploadFile']);

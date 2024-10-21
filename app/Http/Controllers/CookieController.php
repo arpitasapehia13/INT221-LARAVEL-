@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cookie;
+
 
 class CookieController extends Controller
 {
@@ -19,11 +21,13 @@ class CookieController extends Controller
 
     }
 
-    public function deleteCookie(){
-        $delete = new Delete("The cookie has been deleted");
-        $delete->cookie('studentname',null,0);
-        return $delete;
+    public function deleteCookie() {
+        Cookie:: queue(Cookie:: forget('studentname'));
+        return response('The cookie has been deleted');
+       
+    }
+    
 
 
     }
-}
+

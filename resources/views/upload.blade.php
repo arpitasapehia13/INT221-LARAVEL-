@@ -5,7 +5,7 @@
         <title>Upload File</title>
     </head>
     <body>
-        <form method ="POST" action = "upload" enctype="multipart/form-data">
+        <form method ="POST" action = "upload" enctype="multipart/form-data"> 
             @csrf
             Choose file <input type = "file" name = "file" id = "file"> <br>
 

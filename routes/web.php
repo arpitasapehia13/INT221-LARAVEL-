@@ -11,6 +11,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\validationController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\ProductController;
 
 
 // Route::get('/', function () {
@@ -339,11 +340,13 @@ Route::get('/deletecookie', [CookieController::class, 'deleteCookie']);
 
 
 
+                                    // SESSION
+
 //setting data -> put,session,push
 // fetch data -> get,all,session
 //destroy data -> flush,forget,pull
 
-                       // SESSION
+                       
 Route::get('/setSession', [SessionController::class, 'setSession']);
 Route::get('/fetchSession', [SessionController::class, 'fetchSessionData']);
 Route::get('/destroySession', [SessionController::class, 'destroySession']);
@@ -380,3 +383,18 @@ Route::post('validate', [validationController::class, 'index']);
 //FILE UPLOAD
 Route::get('/upload', [UploadController::class, 'uploadForm']);
 Route::post('/upload', [UploadController::class, 'uploadFile']);
+
+
+//********************************************ELOQUENT ORM**********************************************************************
+Route:: resource('products',ProductController :: class);
+
+/*
+(GET) /products/create -> show form to user to create a product
+(POST) /products -> this would store the product
+(GET) /products/1 -> will show a particular product .In this case it is 1 as we have mentioned id = 1
+(GET) /products -> This will fetch all the products
+(GET) /products/1/edit -> show editable for the user to modify product data
+(PUT) /products/1 -> this will update product with id = 1
+(DELETE) /product/1 -> this will destroy the product with id = 1 
+
+*/

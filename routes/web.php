@@ -386,6 +386,7 @@ Route::post('/upload', [UploadController::class, 'uploadFile']);
 
 
 //********************************************ELOQUENT ORM**********************************************************************
+
 Route:: resource('products',ProductController :: class);
 
 /*
@@ -398,3 +399,4 @@ Route:: resource('products',ProductController :: class);
 (DELETE) /product/1 -> this will destroy the product with id = 1 
 
 */
+

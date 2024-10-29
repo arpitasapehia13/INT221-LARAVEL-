@@ -33,6 +33,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
         $product->save();
+        return response("Product inserted successfully");
     }
     
 

@@ -12,8 +12,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('ProductDisplay', compact('products'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -33,8 +35,8 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
         $product->save();
-        return response("Product inserted successfully");
-    }
+        // return response("Product inserted successfully");
+        return redirect("products");    }
     
 
     /**
@@ -42,23 +44,32 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::find($id);
+        return view('productParticular', compact('product'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        //
-    }
+{
+    $product = Product::find($id);
+    return view('productEdit', compact('product'));
+}
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,  $id)
     {
-        //
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->save();
+        return redirect('products');
     }
 
     /**
@@ -66,6 +77,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect('products');
     }
 }

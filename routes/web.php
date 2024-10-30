@@ -385,7 +385,7 @@ Route::get('/upload', [UploadController::class, 'uploadForm']);
 Route::post('/upload', [UploadController::class, 'uploadFile']);
 
 
-//********************************************ELOQUENT ORM**********************************************************************
+//********************************************ELOQUENT ORM(OBJECT RELATIONAL MAPPER)**********************************************************************
 
 Route:: resource('products',ProductController :: class);
 

@@ -400,3 +400,8 @@ Route:: resource('products',ProductController :: class);
 
 */
 //***************************************************lOCALIZATION********************************************************************* */
+
+Route::get('/testlocali/{lang}',function($lang){
+    App::setlocale($lang);
+    return view('testlocali');
+});

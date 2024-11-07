@@ -12,6 +12,8 @@ use App\Http\Controllers\StoryController;
 use App\Http\Controllers\validationController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Cart;
+
 
 
 // Route::get('/', function () {
@@ -405,3 +407,11 @@ Route::get('/testlocali/{lang}',function($lang){
     App::setlocale($lang);
     return view('testlocali');
 });
+
+//***************************************************SESSION -CA2 3RD QUESTION******************************************************************* */
+
+
+Route::get('/cart', [Cart::class, 'showCart'])->name('show');
+Route::get('/add-product', [Cart::class, 'addProductForm'])->name('addProductForm');
+Route::post('/add-product', [Cart::class, 'addProduct'])->name('addProduct');
+Route::post('/cart/remove', [Cart::class, 'removeFromCart'])->name('remove');

@@ -53,10 +53,10 @@ Route::get('/stuff',function(){
 // });
 
 
-// Route::get('/add/{a}/{b}', function($a, $b) {
-//     $sum = $a + $b;
-//     return "The sum is: " . $sum;
-// });
+Route::get('/add/{a}/{b}', function($a, $b) {
+    $sum = $a + $b;
+    return "The sum is: " . $sum;
+});
 
 // Route::get('/grade/{a}', function($a) {
 //     if ($a >= 80 && $a <= 100) {

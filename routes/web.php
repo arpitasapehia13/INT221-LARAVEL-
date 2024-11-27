@@ -170,6 +170,20 @@ Route::get('empdata1',function(){
 });
 
 
+//GROUP ROUTING
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return 'Admin Dashboard';
+    });
+
+    Route::get('/users', function () {
+        return 'Manage Users';
+    });
+});
+
+
+
 
 //CONTORLLERS
 // php artisan make:controller HomeController1

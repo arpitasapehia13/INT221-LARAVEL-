@@ -1,3 +1,5 @@
+
+
 <h2>Your Shopping Cart</h2>
 
 @if(empty($cart))
